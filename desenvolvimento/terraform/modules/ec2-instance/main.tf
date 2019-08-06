@@ -34,14 +34,14 @@ resource "aws_security_group" "main" {
   }
 }
   
-  resource "aws_subnet" "Public" {
-  vpc_id     = "${aws_vpc.Teste_Vpc.id}"
-  cidr_block = "${var.cidr_block_public}"
+  ##resource "aws_subnet" "Public" {
+  #vpc_id     = "${aws_vpc.Teste_Vpc.id}"
+  #idr_block = "${var.cidr_block_public}"
 
-  tags = {
-    Name = "Public"
-  }
-}
+  #tags = {
+   # Name = "Public"
+  #}
+#}
 resource "aws_subnet" "Private" {
   vpc_id     = "${aws_vpc.Teste_Vpc.id}"
   cidr_block = "${var.cidr_block_private}"
