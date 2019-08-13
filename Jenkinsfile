@@ -10,12 +10,11 @@ pipeline {
             steps {
                 sh "rm -rf Modulos_Jenkins"
                 sh "git clone https://github.com/Thsx/Modulos_Jenkins.git"
-                sh "cd Modulos_Jenkins/desenvolvimento/terraform/env/develop/instancia_t2"
-
             }
         }
         stage('Iniciando terra') {
             steps {
+                sh "cd Modulos_Jenkins/desenvolvimento/terraform/env/develop/instancia_t2"
                 sh "terraform init"
                 sh "terraform plan"
                 sh "terraform apply -auto-approve"
