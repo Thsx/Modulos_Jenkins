@@ -27,8 +27,3 @@ pipeline {
             }
         }
     }
-    post {
-        success {
-            echo 'Criado com sucesso'
-        }
-}
