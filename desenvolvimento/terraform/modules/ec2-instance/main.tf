@@ -8,6 +8,7 @@ terraform {
 }
 provider "aws" {
 region      = "${var.region}"
+profile                 = "thi"
 }
 resource "aws_instance" "Teste" {
   ami = "${var.ami}"
