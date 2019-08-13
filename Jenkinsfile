@@ -8,7 +8,6 @@ pipeline {
     stages {
         stage('Clone Repo') {
             steps {
-                sh "rm -rf Testando"
                 sh "git clone https://github.com/Thsx/Modulos_Jenkins.git"
                 sh "cd /Modulos_Jenkins/desenvolvimento/terraform/env/develop/instancia_t2"
 
