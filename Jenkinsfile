@@ -15,8 +15,8 @@ pipeline {
         stage('Iniciando terra') {
             steps {
                 sh "cd Modulos_Jenkins/desenvolvimento/terraform/env/develop/instancia_t2"
-                sh "terraform init"
-                sh "terraform plan"
+                sh "terraform init Modulos_Jenkins/desenvolvimento/terraform/env/develop/instancia_t2"
+                sh "terraform plan Modulos_Jenkins/desenvolvimento/terraform/env/develop/instancia_t2"
                 sh "terraform apply -auto-approve"
                 sh "terraform show"
             }
