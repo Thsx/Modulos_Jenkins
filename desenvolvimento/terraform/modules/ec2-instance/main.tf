@@ -3,6 +3,7 @@ terraform {
     bucket = "thiago-terraform"
     key    = "terraform.tfstate"
     region = "us-west-1"
+    profile = "thi"
   }
 }
 provider "aws" {
