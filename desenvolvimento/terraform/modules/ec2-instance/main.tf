@@ -1,9 +1,8 @@
 terraform {
   backend "s3" {
-    bucket = "thiago-terraform"
-    key    = "terraform.d/terraform.tfstate"
+    bucket = "terraform-bucket-thiago"
+    key    = "terraform.tfstate"
     region = "us-west-1"
-    profile = "thi"
   }
 }
 provider "aws" {
