@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {  
-        AWS_ACCESS_KEY_ID     = credentials('awsCredentials')
-        AWS_SECRET_ACCESS_KEY = credentials('awsCredentials')
+        AWS_ACCESS_KEY_ID     = credentials('Access')
+        AWS_SECRET_ACCESS_KEY = credentials('Secret')
             }
     stages {
         stage('Clone Repo') {
