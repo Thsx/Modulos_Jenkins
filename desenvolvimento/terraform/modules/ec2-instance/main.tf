@@ -3,8 +3,8 @@ region      = "${var.region}"
 }
 terraform {
   backend "s3" {
-    bucket = "thiago-terraform"
-    key    = "instancia/ec2/terraform.tfstate"
+    bucket = "terraform-thi"
+    key    = "terraform.tfstate"
     region = "us-west-1"
   }
 }
