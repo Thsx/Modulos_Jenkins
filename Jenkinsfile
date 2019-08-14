@@ -15,8 +15,8 @@ pipeline {
             steps {
                 sh "cd Modulos_Jenkins/desenvolvimento/terraform/env/develop/instancia_t2"
                 sh "terraform init Modulos_Jenkins/desenvolvimento/terraform/env/develop/instancia_t2"
-                sh "terraform plan Modulos_Jenkins/desenvolvimento/terraform/env/develop/instancia_t2"
-                sh "terraform apply"
+                sh "terraform apply plan Modulos_Jenkins/desenvolvimento/terraform/env/develop/instancia_t2"
+                //sh "terraform apply"
                 sh "terraform show"
             }
         }
