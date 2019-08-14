@@ -1,13 +1,12 @@
+provider "aws" {
+region      = "${var.region}"
+}
 terraform {
   backend "s3" {
     bucket = "thiago-terraform"
-    key    = "terraform.tfstate"
+    key    = "instancia/ec2/terraform.tfstate"
     region = "us-west-1"
   }
-}
-provider "aws" {
-region      = "${var.region}"
-profile                 = "thi"
 }
 resource "aws_instance" "Teste" {
   ami = "${var.ami}"
