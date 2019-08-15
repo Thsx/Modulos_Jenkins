@@ -16,8 +16,11 @@ pipeline {
                 sh "cd Modulos_Jenkins/desenvolvimento/terraform/env/develop/instancia_t2"
                 sh "terraform init Modulos_Jenkins/desenvolvimento/terraform/env/develop/instancia_t2"
                 sh "terraform plan Modulos_Jenkins/desenvolvimento/terraform/env/develop/instancia_t2"
-                sh "terraform apply main.tf Modulos_Jenkins/desenvolvimento/terraform/env/develop/instancia_t2"
-                sh "terraform show"
+            }
+        }
+        stage ('Apply'){
+            steps {
+                sh "terraform apply -auto-approve"
             }
         }
         stage('Deploy') {
