@@ -20,7 +20,7 @@ pipeline {
         }
         stage ('Apply'){
             steps {
-                sh "terraform apply -auto-approve"
+                sh "terraform apply Modulos_Jenkins/desenvolvimento/terraform/env/develop/instancia_t2"
             }
         }
         stage('Deploy') {
