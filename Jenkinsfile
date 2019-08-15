@@ -23,6 +23,11 @@ pipeline {
                 sh "terraform apply -auto-approve Modulos_Jenkins/desenvolvimento/terraform/env/develop/instancia_t2/"
             }
         }
+        stage ('Apply'){
+            steps {
+                sh "terraform destroy -auto-approve Modulos_Jenkins/desenvolvimento/terraform/env/develop/instancia_t2/"
+            }
+        }
         stage('Deploy') {
             steps {
                 echo 'Criado com sucesso'
