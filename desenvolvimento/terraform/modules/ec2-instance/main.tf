@@ -4,14 +4,13 @@ region      = "${var.region}"
 terraform {
   backend "s3" {
     bucket = "terraform-thi"
-    key    = "terraform.tfstate"
+    key    = "instancia2/ec2/terraform.tfstate"
     region = "us-west-1"
   }
 }
 resource "aws_instance" "Teste" {
   ami = "${var.ami}"
   instance_type = "${var.type}"
-  security_groups = ["${aws_security_group.seg.id}"]
   
   user_data = <<-EOF
    #!/bin/bash
