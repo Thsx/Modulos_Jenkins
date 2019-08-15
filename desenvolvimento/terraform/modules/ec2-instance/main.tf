@@ -11,7 +11,7 @@ terraform {
 resource "aws_instance" "Teste" {
   ami = "${var.ami}"
   instance_type = "${var.type}"
-  
+    
   user_data = <<-EOF
    #!/bin/bash
    echo "Hello, World" > index.html
