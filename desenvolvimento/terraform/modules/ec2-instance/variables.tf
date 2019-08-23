@@ -1,10 +1,10 @@
 variable "region" {
-    default = "us-east-1"
+    default = "sa-east-1"
     description = "Main region"
 }
 
 variable  "ami"{
-    default = "ami-035b3c7efe6d061d5"
+    default = "ami-0bb96001cf2299257"
 }
 
 variable "type"{
@@ -12,21 +12,24 @@ variable "type"{
 }
 
 variable "cidr_block_vpc"{
-    default = "192.168.0.0/16"
-}
-
-variable "e_port" {
-    default = "22"
+    default = "10.0.0.0/16"
 }
 
 variable "cidr_block_public" {
-  default = "192.168.1.0/24"
+  default = "10.0.0.0/24"
 }
 variable "cidr_block_private" {
-  default = "192.168.2.0/24"
+  default = "10.0.1.0/24"
 }
 variable "port" {
     default = "80"
+}
+variable "port_https"{
+    default = "443"
+
+}
+variable "port_sh"{
+    default = "22"
 }
 
 variable "i_protocol"{
