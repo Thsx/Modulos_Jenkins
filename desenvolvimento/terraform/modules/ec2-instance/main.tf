@@ -2,21 +2,20 @@ provider "aws" {
 region = "${var.region}"
 }
 resource "aws_instance" "Teste" {
+  #key_name = "teste.pem"
   ami = "${var.ami}"
   instance_type = "${var.type}"
-  ##security_groups = ["${aws_security_group.security.id}"]
+  vpc_security_group_ids = ["${aws_security_group.security.id}"]
   associate_public_ip_address = "true"
+  #security_groups = ["${aws_security_group.security.id}"]
     
   tags {
     Name = "ci/cd gitlab"
   }
   }
-  resource "aws_vpc" "Teste_Vpc" {
-  cidr_block = "${var.cidr_block_vpc}"
-}
-
+  
 resource "aws_security_group" "security" {
-vpc_id = "${aws_vpc.Teste_Vpc.id}"
+    vpc_id = "${var.vpc_id}"
   ingress {
     from_port   = "${var.port}"
     to_port     = "${var.port}"
@@ -39,46 +38,5 @@ vpc_id = "${aws_vpc.Teste_Vpc.id}"
 
   tags {
     Name = "Security Group Instance"
-  }
-}
-resource "aws_internet_gateway" "igw" {
-  vpc_id = "${aws_vpc.Teste_Vpc.id}"
- }
-
-  
-  resource "aws_subnet" "Public" {
-  vpc_id     = "${aws_vpc.Teste_Vpc.id}"
-  cidr_block = "${var.cidr_block_public}"
-
-  tags = {
-    Name = "Public"
-  }
-}
-resource "aws_subnet" "Private" {
-  vpc_id     = "${aws_vpc.Teste_Vpc.id}"
-  cidr_block = "${var.cidr_block_private}"
-
-  tags = {
-    Name = "Private"
-  }
-}
-resource "aws_route_table" "rtb_public" {
-  vpc_id = "${aws_vpc.Teste_Vpc.id}"
-route {
-    cidr_block = "0.0.0.0/0"
-    gateway_id = "${aws_internet_gateway.gw.id}"
-  }
-}
-
-resource "aws_route_table_association" "route" {
-
-    subnet_id = "${aws_subnet.Public.id}"
-    route_table_id = "${aws_route_table.rtb_public.id}"
-}
-resource "aws_internet_gateway" "gw" {
-  vpc_id = "${aws_vpc.Teste_Vpc.id}"
-
-  tags = {
-    Name = "git-gateway"
   }
 }

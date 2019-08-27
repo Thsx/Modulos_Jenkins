@@ -35,3 +35,6 @@ variable "port_sh"{
 variable "i_protocol"{
     default = "tcp"
 }
+variable "vpc_id" {
+    default = ""
+}
