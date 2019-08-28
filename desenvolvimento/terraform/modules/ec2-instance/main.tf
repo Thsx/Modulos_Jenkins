@@ -2,12 +2,12 @@ provider "aws" {
 region = "${var.region}"
 }
 resource "aws_instance" "Teste" {
-  #key_name = "teste.pem"
   ami = "${var.ami}"
   instance_type = "${var.type}"
   vpc_security_group_ids = ["${aws_security_group.security.id}"]
   associate_public_ip_address = "true"
-  #security_groups = ["${aws_security_group.security.id}"]
+  subnet_id = "${var.subnet_id}"
+
     
   tags {
     Name = "ci/cd gitlab"

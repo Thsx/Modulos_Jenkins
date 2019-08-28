@@ -1,6 +1,5 @@
 variable "region" {
     default = "sa-east-1"
-    description = "Main region"
 }
 
 variable  "ami"{
@@ -37,4 +36,8 @@ variable "i_protocol"{
 }
 variable "vpc_id" {
     default = ""
+}
+variable "subnet_id" {
+    default = ""
+
 }
