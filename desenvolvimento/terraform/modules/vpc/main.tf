@@ -7,15 +7,16 @@ resource "aws_vpc" "Teste_Vpc" {
 }
   
   resource "aws_subnet" "Public" {
-  vpc_id     = "${aws_vpc.Teste_Vpc.id}"
+  vpc_id     = "${var.vpc_id}"
   cidr_block = "${var.cidr_block_public}"
+  map_public_ip_on_launch = "true"
 
   tags = {
     Name = "Public"
   }
 }
 resource "aws_subnet" "Private" {
-  vpc_id     = "${aws_vpc.Teste_Vpc.id}"
+  vpc_id     = "${var.vpc_id}"
   cidr_block = "${var.cidr_block_private}"
 
   tags = {

@@ -9,4 +9,11 @@ variable "cidr_block_vpc"{
 }
 variable "vpc_id" {
   default = ""
+
 }
+variable "subnet_id" {
+  default = ""
+}
+
+
+
