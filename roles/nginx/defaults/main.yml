@@ -1,0 +1,11 @@
+---
+
+ssl_path: /etc/ssl/private
+
+server_ip: xxxxxx
+
+certificate_path: /etc/ssl/certs/nginx-selfsigned.crt
+
+certificate_key_ssl: /etc/ssl/private/nginx-selfsigned.key
+
+certificate_pem: /etc/ssl/certs/dhparam.pem

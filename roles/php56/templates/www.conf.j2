@@ -1,0 +1,45 @@
+[www]
+user = {{ user_acl  }}
+
+group = {{ group_acl }}
+
+listen = {{ php_fpm_listen }}
+
+listen.acl_users = {{ user_acl }}
+
+listen.allowed_clients = 127.0.0.1
+
+; Default Value: no set
+; process.priority = -19
+
+pm = {{ php_pm }}
+
+pm.max_children = {{ php_pm_max_children }}
+
+pm.process_idle_timeout = {{ php_process_idle_timeout }}
+
+pm.max_requests = {{ php_pm_max_requests }}
+
+
+{% if php_version == 72 %}
+  {% set php_version_local = 7.2 %}
+{% else %}
+  {% set php_version_local = 5.6 %}
+{% endif %}
+
+{% if php_version 72 %}
+ {% set php_fpm_listen  127.0.0.1:9072 %}
+{% endif %}
+
+request_slowlog_timeout = {{ php_request_slowlog_timeout }}
+
+clear_env = no
+
+slowlog = /var/log/php-fpm/{{ php_version_local }}/www-slow.log
+
+php_admin_value[error_log] = /var/log/php-fpm/{{ php_version_local }}/www-error.log
+php_admin_flag[log_errors] = on
+
+php_value[session.save_handler] = files
+php_value[session.save_path]    = /var/lib/php/{{ php_version_local }}/session
+php_value[soap.wsdl_cache_dir]  = /var/lib/php/{{ php_version_local }}/wsdlcache

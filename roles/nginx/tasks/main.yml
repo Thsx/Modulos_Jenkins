@@ -1,0 +1,21 @@
+---
+      
+- name: install nginx
+  yum:
+   name: nginx
+   state: latest
+   
+#- name: install openssl
+ # yum:
+  # name: ssl
+   #state: latest
+
+- name: start nginx service
+  service: 
+     name: nginx
+    state: started
+  
+- name: create ssl directory
+  file:
+  path: "{{ ssl_path }}"
+  mode: 700

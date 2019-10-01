@@ -1,0 +1,81 @@
+---
+
+  - name: install httpd
+    yum:
+     name: httpd
+     state: latest
+
+  - name: install from repo
+    yum:
+     name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+     state: present
+
+  - name: install release from repo
+    yum:
+     name: http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+     state: present
+
+  - name: install utils
+    yum:
+     name: yum-utils
+     state: latest
+
+  - name: install php56
+    yum:
+     name: php56
+     state: present
+
+  - name: install php72
+    yum:
+     name: php72
+     state: present
+
+  - name: install php56fpm
+    yum:
+     name: php56-php-fpm
+     state: present
+
+  - name: install php72fpm
+    yum:
+     name: php72-php-fpm
+     state: present
+
+- name: install nginx
+    yum:
+     name: nginx
+     state: latest
+
+- name: stop service php56
+  service:
+     name: php56-php-fpm
+     state: stopped
+
+ - name: stop service php72
+   service:
+     name: php72-php-fpm
+     state: stopped    
+
+- template:
+     src: templates/www.conf.j2
+     dest: /etc/opt/remi/php56/php-fpm.d
+     
+- template:
+     src: templates/www.conf.j2
+     dest: /etc/opt/remi/php72/php-fpm.d
+
+- name: start service php56
+   service:
+     name: php56-php-fpm
+     state: started
+
+- name: start service php72
+   service:
+     name: php72-php-fpm
+     state: started           
+
+
+
+  
+
+
+

@@ -1,0 +1,10 @@
+server {
+    listen 443 http2 ssl;
+    listen [::]:443 http2 ssl;
+
+    server_name {{server_ip}};
+
+    ssl_certificate {{certificate_path}};
+    ssl_certificate_key {{certificate_key_ssl}};
+    ssl_dhparam {{certificate_pem}};
+}
