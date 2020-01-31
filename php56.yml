@@ -1,8 +1,0 @@
----
--
- hosts: remote
- remote_user: centos
- become: true
- roles:
-
-  - php56
